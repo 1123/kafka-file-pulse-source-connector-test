@@ -1,11 +1,11 @@
 # Application for measuring the latency of the FilePulse Source Connector
 
 The Filepulse Source Connector (https://www.confluent.io/hub/streamthoughts/kafka-connect-file-pulse) by StreamThoughts can be used to ingest files from the file system into Kafka. 
-For many applications ingestion latency should be as low as possible. This repository serves as a playground for testing the minimum latency that can be achieved when importing data with this connector. 
+For many applications ingestion latency is of primary importance. This repository serves as a playground for testing the minimum latency that can be achieved when importing data with this connector. 
 
-Latency is measured between appending the data to a file on disk and reading the data from the Kafka topic where it has been imported by the connector. 
+Latency is measured between appending the data to a file on disk and consuming the data from the Kafka topic where it has been imported by the connector. 
 First results show that the latency with a local Kafka cluster is between 6 and 110 milliseconds. 
-Latency may be further reduced by tweeking the connector configuration. 
+Latency may be further reduced by tweaking the connector and the connect worker configuration. 
 
 # Prerequisites
 * Java 11 or later (JDK required for building this project)
