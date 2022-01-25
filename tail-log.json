@@ -1,0 +1,24 @@
+{
+  "name": "tail-log",
+  "config": {
+    "connector.class": "io.streamthoughts.kafka.connect.filepulse.source.FilePulseSourceConnector",
+    "fs.scanner.class": "io.streamthoughts.kafka.connect.filepulse.scanner.local.LocalFSDirectoryWalker",
+    "fs.listing.class": "io.streamthoughts.kafka.connect.filepulse.fs.LocalFSDirectoryListing",
+    "fs.cleanup.policy.class": "io.streamthoughts.kafka.connect.filepulse.fs.clean.LogCleanupPolicy",
+    "cleaner.output.failed.path": "/var/log/event/failed",
+    "cleaner.output.succeed.path": "/var/log/event/success",
+    "fs.listing.directory.path": "/tmp/kafka-connect/examples",
+    "fs.listing.interval.ms": "5000",
+    "fs.listing.filters": "io.streamthoughts.kafka.connect.filepulse.fs.filter.RegexFileListFilter",
+    "file.filter.regex.pattern":  ".*\\.log$",
+    "fs.recursive.scan.enable": "false",
+    "internal.kafka.reporter.bootstrap.servers": "localhost:9092",
+    "internal.kafka.reporter.topic": "tail-log-status",
+    "offset.strategy": "path+name+hash",
+    "read.max.wait.ms": "10000",
+    "tasks.reader.class": "io.streamthoughts.kafka.connect.filepulse.fs.reader.LocalRowFileInputReader",
+    "tasks.file.status.storage.bootstrap.servers": "localhost:9092",
+    "topic": "EventLog",
+    "tasks.max": 1
+  }
+}
